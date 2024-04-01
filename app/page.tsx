@@ -1,6 +1,10 @@
 import React from "react";
 
 export default function Home() {
+  const handleOnClick = (topic: string) => {
+    console.log(`You clicked on ${topic}`);
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-white text-black">
       <div className="fixed left-0 top-0 flex w-full justify-left border-b pb-3 pt-20 bg-opacity-50 backdrop-filter backdrop-blur-lg">
@@ -17,19 +21,19 @@ export default function Home() {
       </div>
 
       <div className="flex justify-between space-x-5">
-        <div className="w-1/4 rounded-lg flex flex-col items-center">
+        <div className="w-1/4 rounded-lg flex flex-col items-center" onClick={() => handleOnClick('Math')}>
           <img src="/Math.svg" alt="Math Symbols" />
           <div className="mt-1 font-bold text-2xl">Math</div>
         </div>
-        <div className="w-1/4 rounded-lg flex flex-col items-center">
+        <div className="w-1/4 rounded-lg flex flex-col items-center" onClick={() => handleOnClick('Reading')}>
           <img src="/Reading.svg" alt="Reading ABCs" />
           <div className="mt-1 font-bold text-2xl">Reading</div>
         </div>
-        <div className="w-1/4 rounded-lg flex flex-col items-center">
+        <div className="w-1/4 rounded-lg flex flex-col items-center" onClick={() => handleOnClick('Science')}>
           <img src="/Science.svg" alt="Science Beaker" />
           <div className="mt-1 font-bold text-2xl">Science</div>
         </div>
-        <div className="w-1/4 rounded-lg flex flex-col items-center">
+        <div className="w-1/4 rounded-lg flex flex-col items-center" onClick={() => handleOnClick('Social Studies')}>
           <img src="/SocialStudies.svg" alt="Social Studies People Grouped" />
           <div className="mt-1 font-bold text-2xl">Social Studies</div>
         </div>

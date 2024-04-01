@@ -19,6 +19,26 @@ To install KinderAdventure, follow these steps:
    npm install
    ```
 
+## Obtaining an OpenAI API Key
+## Obtaining an OpenAI API Key
+
+1. Visit the [OpenAI website](https://www.openai.com/).
+1. Click on the `Sign Up` button on the top right corner of the page.
+1. Fill out the registration form with your details and click `Sign Up`.
+1. After signing up, you'll be redirected to the dashboard. If not, click on your profile on the top right corner and select `Dashboard`.
+1. In the dashboard, navigate to the `API Keys` section.
+1. Click on the `Create New Key` button.
+1. You will be prompted to give your key a name and select its permissions. After filling out this information, click `Create`.
+1. Your new API key will be generated and displayed. Make sure to copy it and store it securely. 
+
+**Note:** Treat your API keys as you would your password. Do not share them publicly or expose them in your client-side code.
+
+## Create a local .env file
+In the root of the project, create a `.env.local` file and define an environment variable called `OPENAI_API_KEY` and set its value to your Open AI API key.
+```Example
+OPENAI_API_KEY="idk-wh4t3v3rY0urK3YV4lueIs"
+```
+
 ## Getting Started
 
 To start the development server, run the following command:
