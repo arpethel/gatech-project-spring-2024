@@ -1,9 +1,12 @@
+"use client"
+
 import React from "react";
+import Chat from "@/components/chat";
+import { useChat } from "ai/react"
 
 export default function Home() {
-  const handleOnClick = (topic: string) => {
-    console.log(`You clicked on ${topic}`);
-  };
+
+  const { input, handleInputChange, handleSubmit, messages } = useChat();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-white text-black">
@@ -20,29 +23,38 @@ export default function Home() {
         <p className="text-5xl font-bold mt-10">Choose a topic!</p>
       </div>
 
-      <div className="flex justify-between space-x-5">
-        <div className="w-1/4 rounded-lg flex flex-col items-center" onClick={() => handleOnClick('Math')}>
-          <img src="/Math.svg" alt="Math Symbols" />
-          <div className="mt-1 font-bold text-2xl">Math</div>
+      <form className="flex justify-between space-x-5" onSubmit={handleSubmit}>
+        <div className="w-1/4 rounded-lg flex flex-col items-center">
+          <button value={input}>
+            <img src="/Math.svg" alt="Math Symbols"/>
+            <div className="mt-1 font-bold text-2xl">Math</div>
+          </button>
         </div>
-        <div className="w-1/4 rounded-lg flex flex-col items-center" onClick={() => handleOnClick('Reading')}>
-          <img src="/Reading.svg" alt="Reading ABCs" />
-          <div className="mt-1 font-bold text-2xl">Reading</div>
+        <div className="w-1/4 rounded-lg flex flex-col items-center">
+          <button value={input}>
+            <img src="/Reading.svg" alt="Reading ABCs" />
+            <div className="mt-1 font-bold text-2xl">Reading</div>
+          </button>
         </div>
-        <div className="w-1/4 rounded-lg flex flex-col items-center" onClick={() => handleOnClick('Science')}>
-          <img src="/Science.svg" alt="Science Beaker" />
-          <div className="mt-1 font-bold text-2xl">Science</div>
+        <div className="w-1/4 rounded-lg flex flex-col items-center">
+          <button value={input}>
+            <img src="/Science.svg" alt="Science Beaker" />
+            <div className="mt-1 font-bold text-2xl">Science</div>
+          </button>
         </div>
-        <div className="w-1/4 rounded-lg flex flex-col items-center" onClick={() => handleOnClick('Social Studies')}>
-          <img src="/SocialStudies.svg" alt="Social Studies People Grouped" />
-          <div className="mt-1 font-bold text-2xl">Social Studies</div>
+        <div className="w-1/4 rounded-lg flex flex-col items-center">
+          <button value={input}>
+            <img src="/SocialStudies.svg" alt="Social Studies People Grouped" />
+            <div className="mt-1 font-bold text-2xl">Social Studies</div>
+          </button>
         </div>
-      </div>
+      </form>
 
       <div className="w-full">
         <div className="mt-4 bg-gray-800 p-4 text-white font-mono rounded-lg">
           <div className="text-md">Output</div>
           <div id="output" className="mt-10"></div>
+          <Chat />
         </div>
       </div>
     </main>
