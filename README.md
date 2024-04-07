@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# KinderAdventure
+
+KinderAdventure is an educational app designed for children, providing a user-friendly interface where they can input their name and select from various educational topics, including Math, Reading, Science, and Social Studies. The app dynamically generates stories or factual content tailored to the chosen subject, fostering an engaging and immersive learning environment. The goal of KinderAdventure is to offer a personalized, interactive, and narratively engaging educational experience across multiple disciplines.
+
+## Installation
+
+To install KinderAdventure, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/arpethel/gatech-project-spring-2024.git
+   ```
+1. Navigate to the repository directory:
+   ```bash
+   cd gatech-project-spring-2024
+   ```
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## Obtaining an OpenAI API Key
+## Obtaining an OpenAI API Key
+
+1. Visit the [OpenAI website](https://www.openai.com/).
+1. Click on the `Sign Up` button on the top right corner of the page.
+1. Fill out the registration form with your details and click `Sign Up`.
+1. After signing up, you'll be redirected to the dashboard. If not, click on your profile on the top right corner and select `Dashboard`.
+1. In the dashboard, navigate to the `API Keys` section.
+1. Click on the `Create New Key` button.
+1. You will be prompted to give your key a name and select its permissions. After filling out this information, click `Create`.
+1. Your new API key will be generated and displayed. Make sure to copy it and store it securely. 
+
+**Note:** Treat your API keys as you would your password. Do not share them publicly or expose them in your client-side code.
+
+## Create a local .env file
+In the root of the project, create a `.env.local` file and define an environment variable called `OPENAI_API_KEY` and set its value to your Open AI API key.
+```Example
+OPENAI_API_KEY="idk-wh4t3v3rY0urK3YV4lueIs"
+```
 
 ## Getting Started
 
-First, run the development server:
-
+To start the development server, run the following command:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then, open http://localhost:3000 in your browser to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Usage
+1. Type a name into the Name field and press `Enter` or `Return` on your keyboard.
+1. Select one of the four educational topics: Math, Reading, Science, or Social Studies.
+1. Observe the personalized educational content presented in story form.
