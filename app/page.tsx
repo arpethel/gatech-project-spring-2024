@@ -22,13 +22,13 @@ const HomePage: React.FC = () => {
           }}
         />
         <h1 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-          Welcome to KinderAdventure!
+          {"Welcome to KinderAdventure!"}
         </h1>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6">
             <h3 className="text-center text-2xl font-semibold leading-9 tracking-tight text-gray-900">
-              Please type your name
+              {"Please type your name"}
             </h3>
             <div>
               <div className="m-8">
@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
                 type="submit"
                 className="flex w-full justify-center rounded-full bg-indigo-600 py-4 px-4 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Let's Go!
+                {"Let's Go!"}
               </button>
             </div>
           </form>

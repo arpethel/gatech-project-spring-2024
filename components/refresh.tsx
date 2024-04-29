@@ -7,7 +7,7 @@ const RefreshButton: React.FC = () => {
 
     return (
         <button onClick={refreshPage} className="bg-green-900 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-            Clear Story
+            {"Clear Story"}
         </button>
     );
 }
