@@ -13,7 +13,9 @@ export default function Chat() {
   };
 
   return (
-    <div className="w-full mt-4 p-4 text-black font-bold rounded-lg">
+    <div className="w-full mt-4 p-4 text-black font-bold rounded-lg"
+    style={{ maxWidth: "788px" }}
+    >
       <form onSubmit={handleSubmit}>
         <div className="flex justify-between space-x-5">
           {["Math", "Reading", "Science", "Social Studies"].map((topicName) => (
@@ -39,7 +41,7 @@ export default function Chat() {
       </div>
       <div
         className="w-full flex flex-col justify mt-4 bg-slate-300 p-4 text-slate-900 font-mono rounded-lg overflow-y-auto"
-        style={{ minHeight: "200px", maxHeight: "400px", maxWidth: "1500px" }}
+        style={{ minHeight: "200px", maxHeight: "400px" }}
       >
         {messages.map((message: Message) => (
           <div key={message.id} className="break-words w-full">
