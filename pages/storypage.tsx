@@ -3,12 +3,12 @@
 import React from "react";
 import Chat from "@/components/chat";
 import { useRouter } from "next/router";
-import Link from "next/link";
+import { useEffect } from "react";
 import "./../app/globals.css";
 
-export default function Home() {
-  // const router = useRouter();
-  // const userName = router.query.name || "Guest";
+export default function StoryPage() {
+  const router = useRouter();
+  const userName = router.query.name || "Guest";
 
   return (
     <main>
@@ -22,8 +22,7 @@ export default function Home() {
             />
           </div>
           <div className="fixed right-5 top-3 flex items-center h-20 mr-2">
-            {/* <span className="text-3xl font-bold">Hi, {userName}!</span> */}
-            <span className="text-3xl font-bold">Hi, Ryan!</span>
+            <span className="text-3xl font-bold">Hi, {userName}!</span>
           </div>
         </div>
 

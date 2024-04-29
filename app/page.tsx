@@ -1,21 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/router";
-import "./../app/globals.css";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import "./globals.css";
 
 const HomePage: React.FC = () => {
   const [name, setName] = useState("");
   const router = useRouter();
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    router.push({
-      pathname: "/",
-      query: { name: name },
-    });
-  };
 
   return (
     <div className="bg-white justify-center px-6 py-12 lg:px-8">
@@ -32,7 +23,7 @@ const HomePage: React.FC = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6">
             <h3 className="text-center text-2xl font-semibold leading-9 tracking-tight text-gray-900">
               Please type your name
             </h3>
@@ -41,22 +32,23 @@ const HomePage: React.FC = () => {
                 <input
                   id="userName"
                   name="userName"
-                  type="userName"
-                  autoComplete="userName"
+                  type="text"
+                  autoComplete="name"
                   placeholder="Johnny Appleseed"
                   required
                   className="block w-full rounded-full border-0 py-4 p-4 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 sm:text-lg"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
             </div>
             <div>
               <button
+                onClick={() => router.push(`/storypage?name=${encodeURIComponent(name)}`)}
                 type="submit"
-                className="flex w-full justify-center rounded-full bg-indigo-600 py-4 p-4 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full justify-center rounded-full bg-indigo-600 py-4 px-4 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                <Link href="/storypage">
-                  <p>Let's Go!</p>
-                </Link>
+                Let's Go!
               </button>
             </div>
           </form>
