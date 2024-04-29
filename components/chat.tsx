@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useChat, Message } from 'ai/react';
-import RefreshButton from '@/components/refresh';
+import React from "react";
+import { useChat, Message } from "ai/react";
+import RefreshButton from "@/components/refresh";
 
 export default function Chat() {
   const { input, handleInputChange, handleSubmit, messages } = useChat();
@@ -37,18 +37,20 @@ export default function Chat() {
         <RefreshButton />
       </div>
       <div
-        className="w-full flex justify mt-4 bg-slate-300 p-4 text-slate-900 font-mono rounded-lg overflow-y-auto"
+        className="w-full flex flex-col justify mt-4 bg-slate-300 p-4 text-slate-900 font-mono rounded-lg overflow-y-auto"
         style={{ minHeight: "200px", maxHeight: "400px", maxWidth: "1500px" }}
       >
         {messages.map((message: Message) => (
-          <div key={message.id}>
+          <div key={message.id} className="break-words w-full">
             {message.content
               .split("\n")
               .map((currentTextBlock: string, index: number) =>
                 currentTextBlock === "" ? (
                   <p key={message.id + index}>&nbsp;</p>
                 ) : (
-                  <p key={message.id + index}>{currentTextBlock}</p>
+                  <p key={message.id + index} className="whitespace-normal">
+                    {currentTextBlock}
+                  </p>
                 )
               )}
           </div>

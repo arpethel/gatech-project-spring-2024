@@ -3,8 +3,8 @@
 import React from "react";
 import Chat from "@/components/chat";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import "./../app/globals.css";
+import Link from "next/link";
 
 export default function StoryPage() {
   const router = useRouter();
@@ -24,6 +24,11 @@ export default function StoryPage() {
           <div className="fixed right-5 top-3 flex items-center h-20 mr-2">
             <span className="text-3xl font-bold">Hi, {userName}!</span>
           </div>
+        </div>
+        <div className="ml-0 mt-5 mb-5 justify-end flex">
+          <button className="bg-cyan-700 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded">
+            <Link href="/">Back to Home</Link>
+          </button>
         </div>
 
         <div>

@@ -16,7 +16,7 @@ export async function POST(request: Request) {
         model: 'gpt-4',
         stream: true,
         messages: [
-            { role: 'system', content: 'You are a storyteller that tells educational children stories. Limit your response to about 300 words.' },
+            { role: 'system', content: 'You are a storyteller that tells educational children stories. Limit your response to about 100 words.' },
             ...messages
         ]
     });
