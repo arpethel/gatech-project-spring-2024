@@ -20,7 +20,6 @@ To install KinderAdventure, follow these steps:
    ```
 
 ## Obtaining an OpenAI API Key
-## Obtaining an OpenAI API Key
 
 1. Visit the [OpenAI website](https://www.openai.com/).
 1. Click on the `Sign Up` button on the top right corner of the page.
