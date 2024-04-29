@@ -1,62 +1,61 @@
-"use client"
+"use client";
 
-import React from "react";
-import Chat from "@/components/chat";
-import { useChat } from "ai/react"
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import "./globals.css";
 
-export default function Home() {
-
-  const { input, handleInputChange, handleSubmit, messages } = useChat();
+const HomePage: React.FC = () => {
+  const [name, setName] = useState("");
+  const router = useRouter();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-white text-black">
-      <div className="fixed left-0 top-0 flex w-full justify-left border-b pb-3 pt-20 bg-opacity-50 backdrop-filter backdrop-blur-lg">
-        <div className="fixed left-5 top-1 flex items-center">
-          <img src="/KinderAdventure_logo.svg" alt="Kinder Adventure Logo" className="h-20 mr-2" />
+    <div className="bg-white justify-center px-6 py-12 lg:px-8">
+      <div className="bg-gradient-to-r from-yellow-100 to-teal-300 rounded-lg m-10 p-10">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+          <img
+            className="mx-auto h-36 w-auto"
+            src="/KinderAdventure_logo_no_font.svg"
+            alt="Your Company"
+          />
+          <h1 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            Welcome to KinderAdventure!
+          </h1>
         </div>
-        <div className="fixed right-5 top-3 flex items-center h-20 mr-2">
-          <span className="text-3xl font-bold">Hi, Kendrick!</span>
+
+        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+          <form className="space-y-6">
+            <h3 className="text-center text-2xl font-semibold leading-9 tracking-tight text-gray-900">
+              Please type your name
+            </h3>
+            <div>
+              <div className="m-8">
+                <input
+                  id="userName"
+                  name="userName"
+                  type="text"
+                  autoComplete="name"
+                  placeholder="Johnny Appleseed"
+                  required
+                  className="block w-full rounded-full border-0 py-4 p-4 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 sm:text-lg"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+            </div>
+            <div>
+              <button
+                onClick={() => router.push(`/storypage?name=${encodeURIComponent(name)}`)}
+                type="submit"
+                className="flex w-full justify-center rounded-full bg-indigo-600 py-4 px-4 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Let's Go!
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-
-      <div>
-        <p className="text-5xl font-bold mt-10">Choose a topic!</p>
-      </div>
-
-      <form className="flex justify-between space-x-5" onSubmit={handleSubmit}>
-        <div className="w-1/4 rounded-lg flex flex-col items-center">
-          <button value={input}>
-            <img src="/Math.svg" alt="Math Symbols"/>
-            <div className="mt-1 font-bold text-2xl">Math</div>
-          </button>
-        </div>
-        <div className="w-1/4 rounded-lg flex flex-col items-center">
-          <button value={input}>
-            <img src="/Reading.svg" alt="Reading ABCs" />
-            <div className="mt-1 font-bold text-2xl">Reading</div>
-          </button>
-        </div>
-        <div className="w-1/4 rounded-lg flex flex-col items-center">
-          <button value={input}>
-            <img src="/Science.svg" alt="Science Beaker" />
-            <div className="mt-1 font-bold text-2xl">Science</div>
-          </button>
-        </div>
-        <div className="w-1/4 rounded-lg flex flex-col items-center">
-          <button value={input}>
-            <img src="/SocialStudies.svg" alt="Social Studies People Grouped" />
-            <div className="mt-1 font-bold text-2xl">Social Studies</div>
-          </button>
-        </div>
-      </form>
-
-      <div className="w-full">
-        <div className="mt-4 bg-gray-800 p-4 text-white font-mono rounded-lg">
-          <div className="text-md">Output</div>
-          <div id="output" className="mt-10"></div>
-          <Chat />
-        </div>
-      </div>
-    </main>
+    </div>
   );
-}
+};
+
+export default HomePage;
