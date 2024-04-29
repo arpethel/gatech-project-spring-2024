@@ -30,12 +30,12 @@ export default function StoryPage() {
         </div>
         <div className="ml-0 mt-5 mb-5 justify-end flex">
           <button className="bg-cyan-700 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded">
-            <Link href="/">Back to Home</Link>
+            <Link href="/">{"Back to Home"}</Link>
           </button>
         </div>
 
         <div>
-          <p className="text-5xl font-bold mt-10 mb-10">Choose a topic!</p>
+          <p className="text-5xl font-bold mt-10 mb-10">{"Choose a topic!"}</p>
           <div className="top-3">
             <Chat />
           </div>
