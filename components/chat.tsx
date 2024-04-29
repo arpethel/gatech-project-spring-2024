@@ -3,6 +3,7 @@
 import React from "react";
 import { useChat, Message } from "ai/react";
 import RefreshButton from "@/components/refresh";
+import Image from "next/image";
 
 export default function Chat() {
   const { input, handleInputChange, handleSubmit, messages } = useChat();
@@ -25,7 +26,7 @@ export default function Chat() {
                 onClick={() => handleTopicSubmit(topicName)}
               >
                 <div className="hover:bg-slate-300 rounded-lg p-3">
-                  <img src={`/${topicName}.svg`} alt={`${topicName} Symbol`} />
+                  <Image src={`/${topicName}.svg`} alt={`${topicName} Symbol`} width={150} height={150}/>
                 </div>
                 <div className="mt-1 font-bold text-2xl">{topicName}</div>
               </button>
