@@ -2,19 +2,21 @@
 
 import React from "react";
 import { useChat, Message } from "ai/react";
-import RefreshButton from "@/components/refresh";
 import Image from "next/image";
+import RefreshButton from "@/components/refresh";
+import TextToSpeechButton from "@/components/textToSpeech";
 
 export default function Chat() {
-  const { input, handleInputChange, handleSubmit, messages } = useChat();
+  const { handleInputChange, handleSubmit, messages } = useChat();
 
   const handleTopicSubmit = (topic: string) => {
     handleInputChange({ target: { value: topic } } as any);
   };
 
   return (
-    <div className="w-full mt-4 p-4 text-black font-bold rounded-lg"
-    style={{ maxWidth: "788px" }}
+    <div
+      className="w-full mt-4 p-4 text-black font-bold rounded-lg"
+      style={{ maxWidth: "788px" }}
     >
       <form onSubmit={handleSubmit}>
         <div className="flex justify-between space-x-5">
@@ -28,7 +30,12 @@ export default function Chat() {
                 onClick={() => handleTopicSubmit(topicName)}
               >
                 <div className="hover:bg-slate-300 rounded-lg p-3">
-                  <Image src={`/${topicName}.svg`} alt={`${topicName} Symbol`} width={150} height={150}/>
+                  <Image
+                    src={`/${topicName}.svg`}
+                    alt={`${topicName} Symbol`}
+                    width={150}
+                    height={150}
+                  />
                 </div>
                 <div className="mt-1 font-bold text-2xl">{topicName}</div>
               </button>
@@ -53,12 +60,16 @@ export default function Chat() {
                 ) : (
                   <p key={message.id + index} className="whitespace-normal">
                     {currentTextBlock}
+                    {/* <TextToSpeechButton text={currentTextBlock} /> */}
                   </p>
                 )
               )}
           </div>
         ))}
       </div>
+      {/* <div className="ml-0 mt-5 mb-5 justify-end flex">
+        <TextToSpeechButton text={currentTextBlock} />
+      </div> */}
     </div>
   );
 }
